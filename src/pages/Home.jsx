@@ -1,5 +1,8 @@
 import React from "react";
+
 export default function Home() {
+  const image = (filename) => `${process.env.PUBLIC_URL}/img/${filename}`;
+
   const programs = [
     {
       icon: "fa-laptop-code",
@@ -7,6 +10,7 @@ export default function Home() {
       en: "Information Technology",
       color: "#18a6b8",
     },
+
     {
       icon: "fa-chart-line",
       title: "គ្រប់គ្រងពាណិជ្ជកម្ម",
@@ -42,7 +46,6 @@ export default function Home() {
         color: "#17212b",
       }}
     >
-
       {/* ================= HERO ================= */}
       <section
         className="position-relative"
@@ -55,8 +58,9 @@ export default function Home() {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            background:
-              "linear-gradient(90deg, rgba(6,28,43,.98) 0%, rgba(6,28,43,.88) 45%, rgba(6,28,43,.25) 100%), url('img/BIT3.jpg') center/cover",
+            background: `linear-gradient(90deg, rgba(6,28,43,.98) 0%, rgba(6,28,43,.88) 45%, rgba(6,28,43,.25) 100%), url('${image(
+              "BIT3.jpg"
+            )}') center/cover`,
           }}
         />
 
@@ -88,9 +92,7 @@ export default function Home() {
             className="row align-items-center"
             style={{ minHeight: "760px" }}
           >
-
             <div className="col-lg-7 text-white">
-
               <div
                 className="d-inline-flex align-items-center gap-2 mb-4 px-3 py-2 rounded-pill"
                 style={{
@@ -124,7 +126,6 @@ export default function Home() {
               >
                 អនាគតរបស់អ្នក
                 <br />
-
                 <span style={{ color: "#18d1e5" }}>
                   ចាប់ផ្តើមថ្ងៃនេះ
                 </span>
@@ -145,7 +146,6 @@ export default function Home() {
               </p>
 
               <div className="d-flex flex-wrap gap-3">
-
                 <a
                   href="#programs"
                   className="btn btn-lg rounded-pill px-5 fw-bold text-white"
@@ -168,20 +168,15 @@ export default function Home() {
                 >
                   អំពីសាកលវិទ្យាល័យ
                 </a>
-
               </div>
-
             </div>
-
 
             {/* HERO CARD */}
             <div className="col-lg-5 mt-5 mt-lg-0">
-
               <div
                 className="position-relative mx-auto"
                 style={{ maxWidth: "440px" }}
               >
-
                 <div
                   className="position-absolute"
                   style={{
@@ -202,7 +197,7 @@ export default function Home() {
                   }}
                 >
                   <img
-                    src="img/BIT4.jpeg"
+                    src={image("BIT4.jpeg")}
                     alt="BELTEI University"
                     className="img-fluid rounded-5"
                   />
@@ -217,7 +212,6 @@ export default function Home() {
                   }}
                 >
                   <div className="d-flex align-items-center gap-3">
-
                     <div
                       className="rounded-3 d-flex align-items-center justify-content-center text-white"
                       style={{
@@ -238,18 +232,13 @@ export default function Home() {
                         2026–2027
                       </h5>
                     </div>
-
                   </div>
                 </div>
-
               </div>
-
             </div>
-
           </div>
         </div>
       </section>
-
 
       {/* ================= STATS ================= */}
       <section
@@ -259,7 +248,6 @@ export default function Home() {
         }}
       >
         <div className="container">
-
           <div
             className="row g-0 shadow-lg rounded-4 overflow-hidden position-relative"
             style={{
@@ -267,13 +255,11 @@ export default function Home() {
               background: "#fff",
             }}
           >
-
             {stats.map((item, index) => (
               <div
                 className="col-6 col-lg-3"
                 key={index}
               >
-
                 <div
                   className="text-center p-4"
                   style={{
@@ -283,7 +269,6 @@ export default function Home() {
                         : "none",
                   }}
                 >
-
                   <h2
                     className="fw-bold mb-1"
                     style={{ color: "#087f8c" }}
@@ -294,17 +279,12 @@ export default function Home() {
                   <p className="text-secondary mb-0">
                     {item.text}
                   </p>
-
                 </div>
-
               </div>
             ))}
-
           </div>
-
         </div>
       </section>
-
 
       {/* ================= ABOUT ================= */}
       <section
@@ -313,15 +293,11 @@ export default function Home() {
         style={{ background: "#fff" }}
       >
         <div className="container py-5">
-
           <div className="row align-items-center g-5">
-
             <div className="col-lg-6">
-
               <div className="position-relative">
-
                 <img
-                  src="img/BIT7-c.jpg"
+                  src={image("BIT7-c.jpg")}
                   alt="BELTEI Campus"
                   className="img-fluid rounded-5 shadow-lg"
                 />
@@ -345,14 +321,10 @@ export default function Home() {
                     ចំណេះដឹងសម្រាប់ជីវិត និងអាជីព
                   </p>
                 </div>
-
               </div>
-
             </div>
 
-
             <div className="col-lg-6">
-
               <span
                 className="fw-bold"
                 style={{
@@ -392,7 +364,6 @@ export default function Home() {
               </p>
 
               <div className="row mt-4 g-3">
-
                 <div className="col-6">
                   <div className="d-flex gap-3">
                     <i
@@ -444,15 +415,11 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-
               </div>
-
             </div>
-
           </div>
         </div>
       </section>
-
 
       {/* ================= PROGRAMS ================= */}
       <section
@@ -461,11 +428,8 @@ export default function Home() {
         style={{ background: "#f3f8fa" }}
       >
         <div className="container py-5">
-
           <div className="row align-items-end mb-5">
-
             <div className="col-lg-8">
-
               <span
                 className="fw-bold"
                 style={{
@@ -483,7 +447,6 @@ export default function Home() {
                   ដែលសាកសមនឹងអ្នក
                 </span>
               </h2>
-
             </div>
 
             <div className="col-lg-4 mt-4 mt-lg-0">
@@ -495,18 +458,14 @@ export default function Home() {
                 បង្កើតអនាគត និងអាជីពដែលអ្នកចង់បាន។
               </p>
             </div>
-
           </div>
 
-
           <div className="row g-4">
-
             {programs.map((program, index) => (
               <div
                 className="col-md-6 col-lg-3"
                 key={index}
               >
-
                 <div
                   className="bg-white rounded-5 p-4 h-100 shadow-sm position-relative overflow-hidden"
                   style={{
@@ -523,11 +482,9 @@ export default function Home() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform =
                       "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "";
+                    e.currentTarget.style.boxShadow = "";
                   }}
                 >
-
                   <div
                     className="rounded-4 d-flex align-items-center justify-content-center mb-5"
                     style={{
@@ -537,9 +494,7 @@ export default function Home() {
                       background: program.color,
                     }}
                   >
-                    <i
-                      className={`fa ${program.icon} fa-lg`}
-                    />
+                    <i className={`fa ${program.icon} fa-lg`} />
                   </div>
 
                   <span className="small text-secondary">
@@ -564,27 +519,18 @@ export default function Home() {
                   >
                     <i className="fa fa-arrow-right" />
                   </div>
-
                 </div>
-
               </div>
             ))}
-
           </div>
-
         </div>
       </section>
 
-
       {/* ================= EXPERIENCE ================= */}
       <section className="py-5 bg-white">
-
         <div className="container py-5">
-
           <div className="row align-items-center g-5">
-
             <div className="col-lg-5">
-
               <span
                 className="fw-bold"
                 style={{
@@ -614,7 +560,6 @@ export default function Home() {
               </p>
 
               <div className="mt-4">
-
                 <div className="d-flex align-items-center gap-3 mb-3">
                   <div
                     className="rounded-circle d-flex align-items-center justify-content-center text-white"
@@ -665,19 +610,14 @@ export default function Home() {
                     បទពិសោធន៍ថ្មីៗ
                   </span>
                 </div>
-
               </div>
-
             </div>
 
-
             <div className="col-lg-7">
-
               <div className="row g-3">
-
                 <div className="col-7">
                   <img
-                    src="img/BIT9-d.jpg"
+                    src={image("BIT9-d.jpg")}
                     alt="Student Activity"
                     className="img-fluid rounded-5 shadow-sm w-100"
                     style={{
@@ -689,7 +629,7 @@ export default function Home() {
 
                 <div className="col-5">
                   <img
-                    src="img/BIT10-4.jpg"
+                    src={image("BIT10-4.jpg")}
                     alt="Student Activity"
                     className="img-fluid rounded-5 shadow-sm w-100"
                     style={{
@@ -718,7 +658,7 @@ export default function Home() {
 
                 <div className="col-5">
                   <img
-                    src="img/BIT11-7.jpg"
+                    src={image("BIT11-7.jpg")}
                     alt="Student Activity"
                     className="img-fluid rounded-5 shadow-sm w-100"
                     style={{
@@ -730,7 +670,7 @@ export default function Home() {
 
                 <div className="col-7">
                   <img
-                    src="img/BTI12-d.jpg"
+                    src={image("BTI12-d.jpg")}
                     alt="Student Activity"
                     className="img-fluid rounded-5 shadow-sm w-100"
                     style={{
@@ -739,16 +679,11 @@ export default function Home() {
                     }}
                   />
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
       </section>
-
 
       {/* ================= FINAL CTA ================= */}
       <section
@@ -758,17 +693,14 @@ export default function Home() {
         }}
       >
         <div className="container py-5">
-
           <div className="row align-items-center">
-
             <div className="col-lg-8 text-white">
-
               <span
                 className="small fw-bold"
                 style={{
                   color: "#18d1e5",
                   letterSpacing: "2px",
-                }}  
+                }}
               >
                 YOUR FUTURE STARTS HERE
               </span>
@@ -783,11 +715,9 @@ export default function Home() {
                 ចាប់ផ្តើមដំណើរសិក្សារបស់អ្នក
                 ជាមួយ BELTEI International University។
               </p>
-
             </div>
 
             <div className="col-lg-4 text-lg-end mt-4 mt-lg-0">
-
               <button
                 className="btn btn-lg rounded-pill px-5 fw-bold"
                 style={{
@@ -799,14 +729,10 @@ export default function Home() {
                 ចុះឈ្មោះចូលរៀន
                 <i className="fa fa-arrow-right ms-2" />
               </button>
-
             </div>
-
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }

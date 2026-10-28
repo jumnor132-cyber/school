@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function About() {
+  const image = (filename) =>
+    `${process.env.PUBLIC_URL}/img/${filename}`;
+
   const features = [
     {
       icon: "🎓",
@@ -26,17 +29,17 @@ export default function About() {
 
   const campuses = [
     {
-      image: "/img/BIU1.png",
+      image: image("BIU1.png"),
       title: "ទីតាំងទី១ - ទួលស្លែង",
       location: "ខណ្ឌបឹងកេងកង រាជធានីភ្នំពេញ",
     },
     {
-      image: "/img/BIU2.png",
+      image: image("BIU2.png"),
       title: "ទីតាំងទី២ - ចោមចៅ",
       location: "ផ្លូវជាតិលេខ៣ ខណ្ឌពោធិ៍សែនជ័យ",
     },
     {
-      image: "/img/BIU3.png",
+      image: image("BIU3.png"),
       title: "គម្រោងទី៣ - ទួលពង្រ",
       location: "គម្រោងអគារសិក្សាថ្មី និងទំនើប",
     },
@@ -44,19 +47,17 @@ export default function About() {
 
   return (
     <div className="about-page">
-
-      {/* Hero */}
+      {/* ================= HERO ================= */}
       <section
         className="py-5 text-white"
         style={{
-          background: "linear-gradient(135deg, #1b4332, #2d6a4f, #40916c)",
+          background:
+            "linear-gradient(135deg, #1b4332, #2d6a4f, #40916c)",
         }}
       >
         <div className="container py-5">
           <div className="row align-items-center g-5">
-
             <div className="col-lg-7">
-
               <span
                 className="badge px-3 py-2 mb-3"
                 style={{
@@ -95,11 +96,9 @@ export default function About() {
               >
                 ស្វែងយល់បន្ថែម
               </button>
-
             </div>
 
             <div className="col-lg-5">
-
               <div
                 className="p-3 shadow-lg"
                 style={{
@@ -108,7 +107,7 @@ export default function About() {
                 }}
               >
                 <img
-                  src="/img/BIU1.png"
+                  src={image("BIU1.png")}
                   alt="BELTEI International University"
                   className="img-fluid w-100"
                   style={{
@@ -118,14 +117,12 @@ export default function About() {
                   }}
                 />
               </div>
-
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* About */}
+      {/* ================= ABOUT ================= */}
       <section
         className="py-5"
         style={{
@@ -133,15 +130,11 @@ export default function About() {
         }}
       >
         <div className="container py-4">
-
           <div className="row align-items-center g-5">
-
             <div className="col-lg-5">
-
               <div className="position-relative">
-
                 <img
-                  src="/img/bb1.png"
+                  src={image("bb1.png")}
                   alt="BELTEI Group Headquarters"
                   className="img-fluid shadow rounded-3"
                 />
@@ -156,21 +149,13 @@ export default function About() {
                     borderBottom: "5px solid #ffd166",
                   }}
                 >
-                  <h2 className="fw-bold mb-0">
-                    2005
-                  </h2>
-
-                  <small>
-                    បានចាប់ផ្តើម
-                  </small>
+                  <h2 className="fw-bold mb-0">2005</h2>
+                  <small>បានចាប់ផ្តើម</small>
                 </div>
-
               </div>
-
             </div>
 
             <div className="col-lg-7">
-
               <span
                 className="fw-bold"
                 style={{ color: "#2d6a4f" }}
@@ -204,7 +189,6 @@ export default function About() {
               </p>
 
               <div className="row mt-4 g-3">
-
                 <div className="col-6">
                   <div
                     className="p-3"
@@ -246,22 +230,16 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* Features */}
+      {/* ================= FEATURES ================= */}
       <section className="py-5">
-
         <div className="container py-4">
-
           <div className="text-center mb-5">
-
             <span
               className="fw-bold"
               style={{ color: "#2d6a4f" }}
@@ -272,18 +250,14 @@ export default function About() {
             <h2 className="display-6 fw-bold mt-2">
               ហេតុអ្វីជ្រើសរើស BELTEI?
             </h2>
-
           </div>
 
           <div className="row g-4">
-
             {features.map((item, index) => (
-
               <div
                 className="col-md-6 col-lg-3"
                 key={index}
               >
-
                 <div
                   className="h-100 p-4 text-center"
                   style={{
@@ -305,11 +279,9 @@ export default function About() {
                       "translateY(0)";
                     e.currentTarget.style.borderColor =
                       "#e5e7eb";
-                    e.currentTarget.style.boxShadow =
-                      "none";
+                    e.currentTarget.style.boxShadow = "none";
                   }}
                 >
-
                   <div
                     className="d-inline-flex align-items-center justify-content-center mb-3"
                     style={{
@@ -330,31 +302,23 @@ export default function About() {
                   <p className="text-secondary mb-0">
                     {item.text}
                   </p>
-
                 </div>
-
               </div>
-
             ))}
-
           </div>
         </div>
       </section>
 
-      {/* Campuses */}
+      {/* ================= CAMPUSES ================= */}
       <section
         className="py-5"
         style={{
           background: "#17211b",
         }}
       >
-
         <div className="container py-4">
-
           <div className="d-flex justify-content-between align-items-end mb-5">
-
             <div>
-
               <span
                 className="fw-bold"
                 style={{ color: "#ffd166" }}
@@ -365,20 +329,15 @@ export default function About() {
               <h2 className="display-6 fw-bold mt-2 mb-0 text-white">
                 ទីតាំងសិក្សារបស់យើង
               </h2>
-
             </div>
-
           </div>
 
           <div className="row g-4">
-
             {campuses.map((campus, index) => (
-
               <div
                 className="col-md-6 col-lg-4"
                 key={index}
               >
-
                 <div
                   className="h-100 overflow-hidden"
                   style={{
@@ -387,7 +346,6 @@ export default function About() {
                     border: "1px solid #34443b",
                   }}
                 >
-
                   <img
                     src={campus.image}
                     alt={campus.title}
@@ -399,12 +357,9 @@ export default function About() {
                   />
 
                   <div className="p-4">
-
                     <span
                       className="small fw-bold"
-                      style={{
-                        color: "#ffd166",
-                      }}
+                      style={{ color: "#ffd166" }}
                     >
                       CAMPUS 0{index + 1}
                     </span>
@@ -416,28 +371,19 @@ export default function About() {
                     <p className="text-white-50 mb-0">
                       📍 {campus.location}
                     </p>
-
                   </div>
-
                 </div>
-
               </div>
-
             ))}
-
           </div>
         </div>
       </section>
 
-      {/* Programs */}
+      {/* ================= PROGRAMS ================= */}
       <section className="py-5">
-
         <div className="container py-4">
-
           <div className="row align-items-center g-5">
-
             <div className="col-lg-7">
-
               <span
                 className="fw-bold"
                 style={{ color: "#2d6a4f" }}
@@ -455,49 +401,36 @@ export default function About() {
                   paddingLeft: "25px",
                 }}
               >
-
                 <div className="mb-4">
-
                   <h5 className="fw-bold">
                     បរិញ្ញាបត្ររង
                   </h5>
-
                   <p className="text-secondary mb-0">
                     Associate Degree — រយៈពេល ២ ឆ្នាំ
                   </p>
-
                 </div>
 
                 <div className="mb-4">
-
                   <h5 className="fw-bold">
                     បរិញ្ញាបត្រ
                   </h5>
-
                   <p className="text-secondary mb-0">
                     Bachelor's Degree — រយៈពេល ៤ ឆ្នាំ
                   </p>
-
                 </div>
 
                 <div>
-
                   <h5 className="fw-bold">
                     បរិញ្ញាបត្រជាន់ខ្ពស់ និងបណ្ឌិត
                   </h5>
-
                   <p className="text-secondary mb-0">
                     Master's & Doctoral Degrees
                   </p>
-
                 </div>
-
               </div>
-
             </div>
 
             <div className="col-lg-5">
-
               <div
                 className="p-2"
                 style={{
@@ -505,9 +438,8 @@ export default function About() {
                   borderRadius: "6px",
                 }}
               >
-
                 <img
-                  src="/img/images.jpeg"
+                  src={image("images.jpeg")}
                   alt="BELTEI study program"
                   className="img-fluid w-100"
                   style={{
@@ -516,16 +448,13 @@ export default function About() {
                     borderRadius: "4px",
                   }}
                 />
-
               </div>
-
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* ================= BOTTOM CTA ================= */}
       <section
         className="py-5 text-white text-center"
         style={{
@@ -533,9 +462,7 @@ export default function About() {
           borderTop: "5px solid #ffd166",
         }}
       >
-
         <div className="container py-4">
-
           <h2 className="fw-bold mb-3">
             ចាប់ផ្តើមអនាគតរបស់អ្នកជាមួយ BELTEI
           </h2>
@@ -556,11 +483,8 @@ export default function About() {
           >
             ចូលមើលកម្មវិធីសិក្សា
           </button>
-
         </div>
-
       </section>
-
     </div>
   );
 }

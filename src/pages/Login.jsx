@@ -1,14 +1,14 @@
-
 import React, { useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
 import "../App.css";
 
-const API_URL = "http://localhost/student/student_API.php";
-const DELETE_URL = "http://localhost/student/delete.php";
-const UPDATE_URL = "http://localhost/student/update.php";
-const LOGIN_URL = "http://localhost/student/login.php";
-const LOGOUT_URL = "http://localhost/student/logout.php";
-const SESSION_URL = "http://localhost/student/check_session.php";
+const BASE_URL = process.env.REACT_APP_API_URL || "https://student-backend-1gcn.onrender.com";
+
+const API_URL = `${BASE_URL}/student_API.php`;
+const DELETE_URL = `${BASE_URL}/delete.php`;
+const UPDATE_URL = `${BASE_URL}/update.php`;
+const LOGIN_URL = `${BASE_URL}/login.php`;
+const LOGOUT_URL = `${BASE_URL}/logout.php`;
+const SESSION_URL = `${BASE_URL}/check_session.php`;
 const PAGE_SIZE = 10;
 
 const emptyStudent = {
@@ -23,7 +23,6 @@ const emptyStudent = {
   place: "",
 };
 
-
 const skills = ["HTML", "CSS", "JavaScript", "React", "PHP", "MySQL"];
 
 function readActivity() {
@@ -35,8 +34,6 @@ function readActivity() {
 }
 
 function Login() {
-  const location = useLocation();
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [checkingSession, setCheckingSession] = useState(true);
 
@@ -60,8 +57,8 @@ function Login() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const[serchsalary,  setSerchsalary]=useState("");
-  
+  const [serchsalary, setSerchsalary] = useState("");
+
   const [activity, setActivity] = useState(readActivity);
   const [showActivity, setShowActivity] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
@@ -69,43 +66,43 @@ function Login() {
     localStorage.getItem("adminName") || "Administrator"
   );
 
-
-
-
-
-
-
-
-
-
-  // LOGIN: always show login when entering this page.
-  // PHP still verifies credentials and maintains the real session.
+  // CHECK SESSION
   useEffect(() => {
     let cancelled = false;
 
     async function checkSession() {
       setCheckingSession(true);
-      setIsLoggedIn(false);
-      setLoginError("");
-      setUsername("");
-      setPassword("");
 
       try {
-        // Clear any previous PHP session before showing login.
-        await fetch(LOGOUT_URL, {
-          method: "POST",
+        const response = await fetch(SESSION_URL, {
+          method: "GET",
           credentials: "include",
         });
+
+        const data = await response.json();
+ 
+        if (cancelled) return;
+
+        if (response.ok && data.success === true) {
+          const adminName =
+            data.admin?.full_name || "Administrator";
+
+          setIsLoggedIn(true);
+          setProfileName(adminName);
+          localStorage.setItem("adminName", adminName);
+        } else {
+          setIsLoggedIn(false);
+        }
       } catch (err) {
-        console.warn("Could not clear previous session:", err);
+        if (!cancelled) {
+          console.error("Session check failed:", err);
+          setIsLoggedIn(false);
+        }
+      } finally {
+        if (!cancelled) {
+          setCheckingSession(false);
+        }
       }
-
-      if (cancelled) return;
-
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("adminName");
-      setProfileName("Administrator");
-      setCheckingSession(false);
     }
 
     checkSession();
@@ -113,7 +110,7 @@ function Login() {
     return () => {
       cancelled = true;
     };
-  }, [location.key]);
+  }, []);
 
   // LOGIN
   async function handleLogin(e) {
@@ -198,29 +195,7 @@ function Login() {
       setLoginError("");
     }
   }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // LOAD STUDENTS
+    // LOAD STUDENTS
   async function loadStudents() {
     setLoading(true);
     setError("");
@@ -537,7 +512,10 @@ function Login() {
     URL.revokeObjectURL(url);
 
     setMessage("បាន Export ទិន្នន័យទៅ CSV ជោគជ័យ!");
-    logActivity("Exported student CSV", `${filteredStudents.length} records`);
+    logActivity(
+      "Exported student CSV",
+      `${filteredStudents.length} records`
+    );
   }
 
   // ADMIN PROFILE
@@ -557,8 +535,7 @@ function Login() {
     setMessage("បានកែប្រែឈ្មោះបង្ហាញរបស់ Admin!");
     logActivity("Updated profile", name);
   }
-
-  // SESSION CHECKING SCREEN
+    // SESSION CHECKING SCREEN
   if (checkingSession) {
     return (
       <div className="login-page">
@@ -708,14 +685,18 @@ function Login() {
         {error && (
           <div className="dashboard-alert error">
             {error}
-            <button type="button" onClick={() => setError("")}>✕</button>
+            <button type="button" onClick={() => setError("")}>
+              ✕
+            </button>
           </div>
         )}
 
         {message && (
           <div className="dashboard-alert success">
             {message}
-            <button type="button" onClick={() => setMessage("")}>✕</button>
+            <button type="button" onClick={() => setMessage("")}>
+              ✕
+            </button>
           </div>
         )}
 
@@ -772,7 +753,8 @@ function Login() {
           {skills.map((skill) => {
             const count = students.filter(
               (s) =>
-                String(s.skill || "").toLowerCase() === skill.toLowerCase()
+                String(s.skill || "").toLowerCase() ===
+                skill.toLowerCase()
             ).length;
 
             const percent = students.length
@@ -785,6 +767,7 @@ function Login() {
                   <span>{skill}</span>
                   <strong>{count}</strong>
                 </div>
+
                 <div className="skill-chart-track">
                   <div
                     className="skill-chart-fill"
@@ -801,7 +784,9 @@ function Login() {
             <div className="form-card-header">
               <div>
                 <h2>
-                  {editingId !== null ? "Edit Student" : "Add New Student"}
+                  {editingId !== null
+                    ? "Edit Student"
+                    : "Add New Student"}
                 </h2>
                 <p>Enter the student information below.</p>
               </div>
@@ -893,7 +878,9 @@ function Login() {
                     required
                   >
                     {skills.map((skill) => (
-                      <option key={skill} value={skill}>{skill}</option>
+                      <option key={skill} value={skill}>
+                        {skill}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -932,7 +919,11 @@ function Login() {
                   Cancel
                 </button>
 
-                <button type="submit" className="save-btn" disabled={saving}>
+                <button
+                  type="submit"
+                  className="save-btn"
+                  disabled={saving}
+                >
                   {saving
                     ? "Saving..."
                     : editingId !== null
@@ -976,7 +967,9 @@ function Login() {
                     <div className="activity-details">
                       <strong>{item.action}</strong>
                       <p>{item.studentName}</p>
-                      <small>{item.admin} · {item.time}</small>
+                      <small>
+                        {item.admin} · {item.time}
+                      </small>
                     </div>
                   </div>
                 ))}
@@ -1024,9 +1017,14 @@ function Login() {
             </div>
 
             <div className="header-actions">
-              <button type="button" className="export-btn" onClick={exportCSV}>
+              <button
+                type="button"
+                className="export-btn"
+                onClick={exportCSV}
+              >
                 ⇩ Export CSV
               </button>
+
               <button
                 type="button"
                 className="add-student-btn"
@@ -1065,13 +1063,17 @@ function Login() {
             >
               <option value="All">All Skills</option>
               {skills.map((skill) => (
-                <option key={skill} value={skill}>{skill}</option>
+                <option key={skill} value={skill}>
+                  {skill}
+                </option>
               ))}
             </select>
           </div>
 
           {loading ? (
-            <div className="table-message">Loading students...</div>
+            <div className="table-message">
+              Loading students...
+            </div>
           ) : (
             <div className="student-table-wrapper">
               <table className="student-table">
@@ -1093,16 +1095,24 @@ function Login() {
                     paginatedStudents.map((student, index) => (
                       <tr key={student.id_student}>
                         <td>
-                          {(currentPage - 1) * PAGE_SIZE + index + 1}
+                          {(currentPage - 1) * PAGE_SIZE +
+                            index +
+                            1}
                         </td>
-                        <td className="student-name">{student.name_student}</td>
+
+                        <td className="student-name">
+                          {student.name_student}
+                        </td>
+
                         <td>{student.id_student}</td>
                         <td>{student.age_student}</td>
+
                         <td>
                           <span
                             className={`gender-badge ${
-                              String(student.gender || "").toLowerCase() ===
-                              "female"
+                              String(
+                                student.gender || ""
+                              ).toLowerCase() === "female"
                                 ? "female"
                                 : "male"
                             }`}
@@ -1110,32 +1120,48 @@ function Login() {
                             {student.gender || "-"}
                           </span>
                         </td>
+
                         <td>
                           <span className="skill-badge">
                             {student.skill || "-"}
                           </span>
                         </td>
-                        <td>${Number(student.salary || 0).toLocaleString()}</td>
+
+                        <td>
+                          $
+                          {Number(
+                            student.salary || 0
+                          ).toLocaleString()}
+                        </td>
+
                         <td>
                           <div className="student-actions">
                             <button
                               type="button"
                               className="view-btn"
-                              onClick={() => setSelectedStudent(student)}
+                              onClick={() =>
+                                setSelectedStudent(student)
+                              }
                             >
                               View
                             </button>
+
                             <button
                               type="button"
                               className="Edit-btn"
-                              onClick={() => openEditForm(student)}
+                              onClick={() =>
+                                openEditForm(student)
+                              }
                             >
                               Edit
                             </button>
+
                             <button
                               type="button"
                               className="Delete-btn"
-                              onClick={() => handleDelete(student)}
+                              onClick={() =>
+                                handleDelete(student)
+                              }
                             >
                               Delete
                             </button>
@@ -1146,7 +1172,9 @@ function Login() {
                   ) : (
                     <tr>
                       <td colSpan="8" className="empty-table">
-                        {error ? "Could not load records." : "No matching students found."}
+                        {error
+                          ? "Could not load records."
+                          : "No matching students found."}
                       </td>
                     </tr>
                   )}
@@ -1162,7 +1190,10 @@ function Login() {
                 ? 0
                 : (currentPage - 1) * PAGE_SIZE + 1}
               {" - "}
-              {Math.min(currentPage * PAGE_SIZE, filteredStudents.length)}
+              {Math.min(
+                currentPage * PAGE_SIZE,
+                filteredStudents.length
+              )}
               {" of "}
               {filteredStudents.length}
             </span>
@@ -1171,15 +1202,25 @@ function Login() {
               <button
                 type="button"
                 disabled={currentPage === 1}
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                onClick={() =>
+                  setPage((p) => Math.max(1, p - 1))
+                }
               >
                 Previous
               </button>
-              <span>{currentPage} / {totalPages}</span>
+
+              <span>
+                {currentPage} / {totalPages}
+              </span>
+
               <button
                 type="button"
                 disabled={currentPage === totalPages}
-                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                onClick={() =>
+                  setPage((p) =>
+                    Math.min(totalPages, p + 1)
+                  )
+                }
               >
                 Next
               </button>
@@ -1206,6 +1247,7 @@ function Login() {
                 <h2>Student Details</h2>
                 <p>Complete student information</p>
               </div>
+
               <button
                 type="button"
                 onClick={() => setSelectedStudent(null)}
@@ -1223,7 +1265,10 @@ function Login() {
                 ["Telegram", selectedStudent.telegram],
                 ["Facebook", selectedStudent.facebook],
                 ["Skill", selectedStudent.skill],
-                ["Salary", `$${selectedStudent.salary || "0"}`],
+                [
+                  "Salary",
+                  `$${selectedStudent.salary || "0"}`,
+                ],
                 ["Place", selectedStudent.place],
               ].map(([label, value]) => (
                 <div className="detail-item" key={label}>
@@ -1241,6 +1286,7 @@ function Login() {
               >
                 Close
               </button>
+
               <button
                 type="button"
                 className="save-btn"
@@ -1257,3 +1303,4 @@ function Login() {
 }
 
 export default Login;
+

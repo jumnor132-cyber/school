@@ -1,6 +1,10 @@
 import React from "react";
 
 export default function Service() {
+  // Fix image paths for localhost and GitHub Pages
+  const image = (filename) =>
+    `${process.env.PUBLIC_URL}/img/${filename}`;
+
   const services = [
     {
       icon: "fas fa-graduation-cap",
@@ -32,32 +36,33 @@ export default function Service() {
     },
   ];
 
- const testimonials = [
-  {
-        image: "/img/student1.jpeg",
-    name: "ជា សុខា",
-    major: "និស្សិតជំនាញ ព័ត៌មានវិទ្យា (IT)",
-    text: "ការសិក្សានៅសាកលវិទ្យាល័យ ប៊ែលធី អន្តរជាតិ ផ្តល់នូវកម្មវិធីសិក្សាច្បាស់លាស់",
-  },
-  {
-    image: "/img/student2.jpeg",
-    name: "អ៊ឹម ចាន់ថឿន",
-    major: "និស្សិតជំនាញ ភាសាអង់គ្លេសពាណិជ្ជកម្ម",
-    text: "បរិយាកាសសិក្សានៅទីនេះល្អខ្លាំងណាស់",
-  },
-  {
-    image: "/img/student3.jpeg",
-    name: "លី ម៉េងហួរ",
-    major: "អតីតនិស្សិត ជំនាញគ្រប់គ្រងធុរកិច្ច",
-    text: "សាកលវិទ្យាល័យផ្តល់ទាំងទ្រឹស្តី និងជំនាញអនុវត្តជាក់ស្តែង",
-  },
-  {
-    image: "/img/student4.jpeg",
-    name: "ម៉េង ហុង",
-    major: "អតីតនិស្សិត ជំនាញគ្រប់គ្រងធុរកិច្ច",
-    text: "ការសិក្សានៅ BELTEI បានជួយបង្កើនចំណេះដឹង និងជំនាញរបស់ខ្ញុំ",
-  },
-];
+  const testimonials = [
+    {
+      image: image("student1.jpeg"),
+      name: "ជា សុខា",
+      major: "និស្សិតជំនាញ ព័ត៌មានវិទ្យា (IT)",
+      text: "ការសិក្សានៅសាកលវិទ្យាល័យ ប៊ែលធី អន្តរជាតិ ផ្តល់នូវកម្មវិធីសិក្សាច្បាស់លាស់",
+    },
+    {
+      image: image("student2.jpeg"),
+      name: "អ៊ឹម ចាន់ថឿន",
+      major: "និស្សិតជំនាញ ភាសាអង់គ្លេសពាណិជ្ជកម្ម",
+      text: "បរិយាកាសសិក្សានៅទីនេះល្អខ្លាំងណាស់",
+    },
+    {
+      image: image("student3.jpeg"),
+      name: "លី ម៉េងហួរ",
+      major: "អតីតនិស្សិត ជំនាញគ្រប់គ្រងធុរកិច្ច",
+      text: "សាកលវិទ្យាល័យផ្តល់ទាំងទ្រឹស្តី និងជំនាញអនុវត្តជាក់ស្តែង",
+    },
+    {
+      image: image("student4.jpeg"),
+      name: "ម៉េង ហុង",
+      major: "អតីតនិស្សិត ជំនាញគ្រប់គ្រងធុរកិច្ច",
+      text: "ការសិក្សានៅ BELTEI បានជួយបង្កើនចំណេះដឹង និងជំនាញរបស់ខ្ញុំ",
+    },
+  ];
+
   return (
     <>
       {/* ================= HEADER ================= */}
@@ -92,7 +97,6 @@ export default function Service() {
       {/* ================= SERVICES ================= */}
       <section className="container-fluid py-5">
         <div className="container py-4">
-
           <div className="text-center mb-5">
             <span className="fw-bold text-primary">
               WHAT WE PROVIDE
@@ -102,7 +106,10 @@ export default function Service() {
               សេវាកម្ម និងអត្ថប្រយោជន៍សម្រាប់និស្សិត
             </h1>
 
-            <p className="text-secondary mx-auto" style={{ maxWidth: 700 }}>
+            <p
+              className="text-secondary mx-auto"
+              style={{ maxWidth: 700 }}
+            >
               បរិយាកាសសិក្សាដែលផ្តល់ឱកាសឱ្យនិស្សិត
               អភិវឌ្ឍទាំងចំណេះដឹង ជំនាញ និងបទពិសោធន៍។
             </p>
@@ -121,7 +128,6 @@ export default function Service() {
                   }}
                 >
                   <div className="d-flex">
-
                     <div
                       className="flex-shrink-0 d-flex align-items-center justify-content-center"
                       style={{
@@ -152,17 +158,15 @@ export default function Service() {
                         {item.text}
                       </p>
                     </div>
-
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ================= REGISTRATION NEW DESIGN ================= */}
+      {/* ================= REGISTRATION ================= */}
       <section
         className="container-fluid py-5"
         style={{
@@ -171,9 +175,7 @@ export default function Service() {
         }}
       >
         <div className="container py-5">
-
           <div className="row g-5 align-items-stretch">
-
             {/* LEFT INFORMATION */}
             <div className="col-lg-5">
               <div
@@ -184,7 +186,6 @@ export default function Service() {
                     "linear-gradient(145deg, #1d4ed8, #0891b2)",
                 }}
               >
-
                 <span className="badge bg-white text-primary px-3 py-2 mb-4">
                   JOIN US
                 </span>
@@ -247,20 +248,19 @@ export default function Service() {
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
 
-            {/* FORM */}
+            {/* REGISTRATION FORM */}
             <div className="col-lg-7">
               <div
                 className="bg-white p-4 p-lg-5 h-100"
                 style={{
                   borderRadius: "30px",
-                  boxShadow: "0 15px 45px rgba(15,23,42,0.10)",
+                  boxShadow:
+                    "0 15px 45px rgba(15,23,42,0.10)",
                 }}
               >
-
                 <div className="mb-4">
                   <span className="text-primary fw-bold">
                     ONLINE REGISTRATION
@@ -277,7 +277,6 @@ export default function Service() {
                 </div>
 
                 <div className="row g-3">
-
                   <div className="col-md-6">
                     <label className="form-label fw-semibold">
                       ឈ្មោះ
@@ -326,15 +325,19 @@ export default function Service() {
                       <option value="it">
                         ព័ត៌មានវិទ្យា
                       </option>
+
                       <option value="business">
                         គ្រប់គ្រងពាណិជ្ជកម្ម
                       </option>
+
                       <option value="economics">
                         សេដ្ឋកិច្ច
                       </option>
+
                       <option value="law">
                         ច្បាប់
                       </option>
+
                       <option value="engineering">
                         វិស្វកម្ម
                       </option>
@@ -364,21 +367,16 @@ export default function Service() {
                       <i className="bi bi-arrow-right ms-2" />
                     </button>
                   </div>
-
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* ================= STUDENT EXPERIENCE ================= */}
       <section className="container-fluid py-5 bg-white">
         <div className="container py-5">
-
           <div className="text-center mb-5">
             <span className="text-primary fw-bold">
               STUDENT EXPERIENCE
@@ -394,10 +392,11 @@ export default function Service() {
           </div>
 
           <div className="row g-4">
-
             {testimonials.map((student, index) => (
-              <div className="col-md-6 col-lg-3" key={index}>
-
+              <div
+                className="col-md-6 col-lg-3"
+                key={index}
+              >
                 <div
                   className="h-100 p-4 text-center"
                   style={{
@@ -419,7 +418,6 @@ export default function Service() {
                       "none";
                   }}
                 >
-
                   <img
                     src={student.image}
                     alt={student.name}
@@ -461,14 +459,10 @@ export default function Service() {
                   <p className="text-secondary lh-lg mb-0">
                     {student.text}
                   </p>
-
                 </div>
-
               </div>
             ))}
-
           </div>
-
         </div>
       </section>
 
@@ -481,7 +475,6 @@ export default function Service() {
         }}
       >
         <div className="container py-4 text-center">
-
           <span className="text-warning fw-bold">
             YOUR FUTURE STARTS HERE
           </span>
@@ -504,7 +497,6 @@ export default function Service() {
             ចុះឈ្មោះឥឡូវនេះ
             <i className="bi bi-arrow-right ms-2" />
           </button>
-
         </div>
       </section>
     </>
