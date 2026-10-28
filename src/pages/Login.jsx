@@ -57,7 +57,6 @@ function Login() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [serchsalary, setSerchsalary] = useState("");
 
   const [activity, setActivity] = useState(readActivity);
   const [showActivity, setShowActivity] = useState(false);

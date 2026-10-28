@@ -75,7 +75,10 @@ background: "linear-gradient(135deg, #087f8c, #0dcaf0)",
 
           <div className="d-flex gap-2 mt-4">
             <a
-              href="#"
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
               className="btn btn-light rounded-circle"
               style={{
                 width: "42px",
@@ -86,7 +89,10 @@ background: "linear-gradient(135deg, #087f8c, #0dcaf0)",
             </a>
 
             <a
-              href="#"
+              href="https://youtube.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
               className="btn btn-light rounded-circle"
               style={{
                 width: "42px",
@@ -97,7 +103,10 @@ background: "linear-gradient(135deg, #087f8c, #0dcaf0)",
             </a>
 
             <a
-              href="#"
+              href="https://telegram.org"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Telegram"
               className="btn btn-light rounded-circle"
               style={{
                 width: "42px",
@@ -239,19 +248,22 @@ background: "linear-gradient(135deg, #087f8c, #0dcaf0)",
   </footer>
 
   {/* Back To Top */}
-  <a
-    href="#"
+  <button
+    type="button"
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     className="btn btn-info rounded-circle position-fixed"
+    aria-label="Back to top"
     style={{
       width: "50px",
       height: "50px",
       right: "20px",
       bottom: "20px",
       zIndex: 999,
+      border: "none",
     }}
   >
     <i className="fa fa-arrow-up text-white" />
-  </a>
+  </button>
 </>
 
 );
