@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "../App.css";
 
-const BASE_URL = process.env.REACT_APP_API_URL || "https://student-backend-1gcn.onrender.com";
-
-const API_URL = `${BASE_URL}/student_API.php`;
-const DELETE_URL = `${BASE_URL}/delete.php`;
-const UPDATE_URL = `${BASE_URL}/update.php`;
-const LOGIN_URL = `${BASE_URL}/login.php`;
-const LOGOUT_URL = `${BASE_URL}/logout.php`;
-const SESSION_URL = `${BASE_URL}/check_session.php`;
+import {
+  API_URL,
+  DELETE_URL,
+  UPDATE_URL,
+  LOGIN_URL,
+  LOGOUT_URL,
+  SESSION_URL,
+} from "../config/api";
 const PAGE_SIZE = 10;
 
 const emptyStudent = {
