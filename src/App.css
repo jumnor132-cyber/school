@@ -6353,3 +6353,3550 @@ button:disabled {
   }
 }
 
+/* ==========================================================================
+   Student Photo Upload & Gender-Based Avatar Styling
+   ========================================================================== */
+
+.student-photo-upload-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #f8f7ff 0%, #f1effe 100%);
+  border: 1px solid #e2ddf8;
+  border-radius: 14px;
+  margin-bottom: 22px;
+  transition: all 0.2s ease;
+}
+
+.avatar-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.avatar-preview-circle {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 3px solid #7161d8;
+  box-shadow: 0 4px 14px rgba(113, 97, 216, 0.2);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.avatar-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-uploading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.photo-gender-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 12px;
+  letter-spacing: 0.2px;
+}
+
+.photo-gender-badge.male {
+  background: #e0e7ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+}
+
+.photo-gender-badge.female {
+  background: #fce7f3;
+  color: #9d174d;
+  border: 1px solid #fbcfe8;
+}
+
+.avatar-upload-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.photo-section-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2b2c45;
+  margin-bottom: 4px;
+}
+
+.photo-section-hint {
+  font-size: 12px;
+  color: #6a6c84;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.photo-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.photo-upload-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  background: #7161d8;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.photo-upload-button:hover {
+  background: #5b4abb;
+  transform: translateY(-1px);
+}
+
+.photo-reset-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: #555770;
+  border: 1px solid #dcd9ee;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo-reset-button:hover {
+  background: #f4f3fb;
+  color: #2e2f42;
+  border-color: #cac5e5;
+}
+
+/* Student Table Photo Column */
+.student-photo-cell {
+  width: 52px;
+  padding: 8px 10px !important;
+  text-align: center;
+}
+
+.student-table-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e7e5f5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  vertical-align: middle;
+  background: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.student-table-photo:hover {
+  transform: scale(1.15);
+}
+
+/* Modal Details Avatar Header */
+.modal-student-avatar-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #faf9ff 0%, #f3f0fe 100%);
+  border: 1px solid #e4defa;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-student-photo {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #7161d8;
+  box-shadow: 0 4px 12px rgba(113, 97, 216, 0.2);
+  background: #ffffff;
+}
+
+.modal-student-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-student-meta h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2b2c45;
+}
+
+@media (max-width: 640px) {
+  .student-photo-upload-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .photo-action-buttons {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Payment Status Toggle Buttons & Badges (Checkmark / Cross)
+   ========================================================================== */
+
+.payment-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  background: white;
+  outline: none;
+}
+
+.payment-toggle-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(113, 97, 216, 0.3);
+}
+
+.payment-toggle-btn.paid {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);
+}
+
+.payment-toggle-btn.paid:hover:not(:disabled) {
+  background: #d1fae5;
+  border-color: #6ee7b7;
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.25);
+}
+
+.payment-toggle-btn.unpaid {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.15);
+}
+
+.payment-toggle-btn.unpaid:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.25);
+}
+
+.payment-toggle-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.payment-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.payment-icon.check {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.payment-icon.cross {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.payment-btn-text {
+  font-weight: 700;
+}
+
+.payment-btn-loading {
+  font-size: 12px;
+}
+
+.stat-icon.emerald {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+/* ==========================================================================
+   PRINTING & PAYMENTS SYSTEM (Student ID Card, Receipt, Bakong KHQR)
+   ========================================================================== */
+
+/* Payment cell in table */
+.payment-cell-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.quick-icon-btn:hover {
+  transform: translateY(-1px) scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.quick-icon-btn.receipt {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d;
+}
+
+.quick-icon-btn.receipt:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.quick-icon-btn.khqr {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #e11d48;
+}
+
+.quick-icon-btn.khqr:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+}
+
+.id-card-action-btn {
+  background: #f8fafc;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.id-card-action-btn:hover {
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+  transform: translateY(-1px);
+}
+
+/* Modal Quick Print Actions */
+.modal-print-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.btn-modal-print {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-print.idcard {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+.btn-modal-print.idcard:hover {
+  background: #bae6fd;
+}
+
+.btn-modal-print.receipt {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+.btn-modal-print.receipt:hover {
+  background: #bbf7d0;
+}
+
+.btn-modal-print.khqr {
+  background: #ffe4e6;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+.btn-modal-print.khqr:hover {
+  background: #fecdd3;
+}
+
+/* =========================================
+   STUDENT ID CARD MODAL & DESIGN
+   ========================================= */
+.idcard-modal-container {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  max-height: 94vh;
+  overflow-y: auto;
+}
+
+.idcard-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.idcard-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.idcard-modal-header p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.close-modal-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #64748b;
+  font-size: 14px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-modal-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.idcard-print-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* Actual ID Card Layout */
+.beltei-idcard {
+  width: 360px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  border: 2px solid #087f8c;
+  box-shadow: 0 12px 30px rgba(8, 127, 140, 0.15);
+  overflow: hidden;
+  position: relative;
+  font-family: "Poppins", "Khmer OS Battambang", sans-serif;
+}
+
+.idcard-top {
+  background: linear-gradient(135deg, #061c2b 0%, #087f8c 100%);
+  color: #ffffff;
+  padding: 14px 14px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.idcard-logo-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.idcard-header-titles h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+}
+
+.idcard-header-titles h5 {
+  margin: 1px 0 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #7dd3fc;
+}
+
+.idcard-accreditation {
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+}
+
+.idcard-badge-tag {
+  background: #f59e0b;
+  color: #78350f;
+  font-size: 9px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1.5px;
+  padding: 3px 0;
+  text-transform: uppercase;
+}
+
+.idcard-body {
+  padding: 16px 14px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.idcard-photo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.idcard-photo-img {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #087f8c;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.idcard-id-pill {
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.idcard-details {
+  flex: 1;
+}
+
+.idcard-name-kh {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.idcard-name-en {
+  font-size: 11px;
+  font-weight: 600;
+  color: #087f8c;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.idcard-info-table {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 8px;
+}
+
+.idcard-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.idcard-info-row .lbl {
+  color: #64748b;
+  font-size: 10px;
+}
+
+.idcard-info-row .val {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.idcard-info-row .val.highlight {
+  color: #087f8c;
+  font-weight: 700;
+}
+
+.idcard-footer {
+  padding: 10px 14px 12px;
+  background: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.idcard-barcode-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.idcard-barcode-lines {
+  display: flex;
+  align-items: center;
+  height: 26px;
+}
+
+.idcard-barcode-text {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #475569;
+  font-family: monospace;
+}
+
+.idcard-seal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.idcard-seal {
+  width: 44px;
+  height: 44px;
+  border: 1.5px dashed #087f8c;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #087f8c;
+  font-size: 6px;
+  font-weight: bold;
+  transform: rotate(-10deg);
+  background: rgba(8, 127, 140, 0.05);
+}
+
+.idcard-signature {
+  margin-top: 4px;
+}
+
+.sig-line {
+  font-size: 8px;
+  color: #64748b;
+  border-top: 1px solid #94a3b8;
+  padding-top: 2px;
+  display: block;
+}
+
+.idcard-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.idcard-print-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #087f8c, #066874);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(8, 127, 140, 0.2);
+}
+
+.idcard-print-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(8, 127, 140, 0.3);
+}
+
+.idcard-close-btn {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   OFFICIAL PAYMENT RECEIPT MODAL & DESIGN
+   ========================================= */
+.receipt-modal-container {
+  width: 100%;
+  max-width: 650px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  max-height: 94vh;
+  overflow-y: auto;
+}
+
+.receipt-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.receipt-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.receipt-modal-header p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.receipt-paper {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.receipt-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.receipt-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.receipt-brand-logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #087f8c, #12b8c5);
+  color: #ffffff;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.receipt-brand h2 {
+  margin: 0;
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.receipt-brand h3 {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #087f8c;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.receipt-brand p {
+  margin: 4px 0 0;
+  font-size: 10px;
+  color: #64748b;
+}
+
+.receipt-meta-box {
+  text-align: right;
+}
+
+.receipt-badge-title {
+  display: inline-block;
+  background: #087f8c;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.receipt-meta-item {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.receipt-meta-item strong {
+  color: #0f172a;
+  margin-left: 4px;
+}
+
+.receipt-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 18px 0;
+}
+
+.receipt-student-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.receipt-info-col p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+.receipt-info-col p span {
+  display: inline-block;
+  width: 110px;
+  color: #64748b;
+}
+
+.receipt-info-col p strong {
+  color: #0f172a;
+}
+
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.receipt-table th {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 2px solid #cbd5e1;
+  font-weight: 600;
+}
+
+.receipt-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.receipt-table tfoot td {
+  border-top: 2px solid #0f172a;
+  border-bottom: none;
+  padding: 12px;
+}
+
+.receipt-bottom-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 24px;
+  gap: 20px;
+}
+
+.receipt-status-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.receipt-stamp {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-12deg);
+  border: 3px dashed;
+  font-weight: bold;
+}
+
+.receipt-stamp.paid-stamp {
+  border-color: #059669;
+  color: #059669;
+  background: rgba(5, 150, 105, 0.05);
+}
+
+.receipt-stamp.unpaid-stamp {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.05);
+}
+
+.stamp-circle {
+  font-size: 7px;
+  letter-spacing: 0.5px;
+}
+
+.stamp-text {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 2px 0;
+}
+
+.stamp-date {
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.receipt-note {
+  margin: 0;
+  font-size: 10px;
+  color: #94a3b8;
+  font-style: italic;
+  max-width: 250px;
+}
+
+.receipt-signatures {
+  display: flex;
+  gap: 24px;
+}
+
+.sig-block {
+  text-align: center;
+  width: 130px;
+}
+
+.sig-line-top {
+  border-top: 1px solid #94a3b8;
+  margin-bottom: 6px;
+}
+
+.sig-officer-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #087f8c;
+  min-height: 20px;
+}
+
+.sig-block p {
+  margin: 0;
+  font-size: 10px;
+  color: #64748b;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.receipt-print-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  transition: all 0.2s;
+}
+
+.receipt-print-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+}
+
+.receipt-close-btn {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   BAKONG KHQR MODAL & DESIGN
+   ========================================= */
+.khqr-modal-container {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.khqr-modal-header {
+  background: linear-gradient(135deg, #e11d48, #be123c);
+  color: #ffffff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.khqr-badge {
+  background: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.khqr-red-text {
+  color: #e11d48;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.khqr-bakong-sub {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.khqr-close-x {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.khqr-close-x:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.khqr-modal-body {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.khqr-merchant-info {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.khqr-merchant-info h4 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.khqr-merchant-info p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.khqr-amount-box {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin: 8px 0 16px;
+  background: #f8fafc;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+}
+
+.khqr-amount-currency {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.khqr-amount-val {
+  font-size: 26px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.khqr-amount-code {
+  font-size: 12px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.khqr-qr-wrapper {
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px solid #e11d48;
+  box-shadow: 0 8px 25px rgba(225, 29, 72, 0.12);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.khqr-qr-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.khqr-qr-img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  border-radius: 6px;
+}
+
+.khqr-center-icon {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: #e11d48;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.khqr-student-meta {
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  margin-bottom: 14px;
+}
+
+.khqr-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.khqr-meta-row span {
+  color: #64748b;
+}
+
+.khqr-meta-row strong {
+  color: #0f172a;
+}
+
+.khqr-status-pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.khqr-status-pill.paid {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.khqr-status-pill.unpaid {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.khqr-scan-instruction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef2f2;
+  border: 1px dashed #fecdd3;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  color: #9f1239;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.khqr-confirm-pay-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s;
+}
+
+.khqr-confirm-pay-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+}
+
+.khqr-confirm-pay-btn.receipt-view {
+  background: linear-gradient(135deg, #087f8c, #066874);
+  box-shadow: 0 4px 12px rgba(8, 127, 140, 0.25);
+}
+
+/* ==========================================================================
+   PRINT MEDIA STYLES - ISOLATE ID CARD / RECEIPT
+   ========================================================================== */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .printable-area,
+  .printable-area * {
+    visibility: visible !important;
+  }
+  .printable-area {
+    position: absolute !important;
+    left: 50% !important;
+    top: 40px !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+}
+
+/* ==========================================================================
+   ACADEMIC EVALUATION & CERTIFICATE OF HONOR (ពិន្ទុ និទ្ទេស និង ប័ណ្ណសរសើរ)
+   ========================================================================== */
+
+/* Table Score Cell */
+.student-score-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.score-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-val {
+  font-weight: 800;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.score-max {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.grade-badge.grade-a {
+  background: #d1fae5;
+  color: #047857;
+  border: 1px solid #6ee7b7;
+}
+
+.grade-badge.grade-b {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+
+.grade-badge.grade-c {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+}
+
+.grade-badge.grade-d {
+  background: #ede9fe;
+  color: #6d28d9;
+  border: 1px solid #c4b5fd;
+}
+
+.grade-badge.grade-e {
+  background: #ffedd5;
+  color: #c2410c;
+  border: 1px solid #fdba74;
+}
+
+.grade-badge.grade-f {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.grade-khmer-sub {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.cert-action-btn {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cert-action-btn:hover {
+  background: #fde68a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(180, 83, 9, 0.15);
+}
+
+.stat-icon.gold {
+  background: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.btn-modal-print.cert {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.btn-modal-print.cert:hover {
+  background: #fde68a;
+}
+
+/* =========================================
+   CERTIFICATE OF HONOR MODAL & DESIGN
+   ========================================= */
+.cert-modal-container {
+  width: 100%;
+  max-width: 820px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.25);
+  max-height: 94vh;
+  overflow-y: auto;
+}
+
+.cert-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cert-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.cert-modal-header p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.cert-print-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* Authentic Cambodian Certificate Styling */
+.beltei-certificate {
+  width: 760px;
+  background: #fffefb;
+  border: 8px double #b45309;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 35px rgba(180, 83, 9, 0.15);
+  position: relative;
+  font-family: "Poppins", "Khmer OS Battambang", "Times New Roman", serif;
+  color: #1c1917;
+}
+
+.cert-inner-border {
+  border: 1.5px solid #d97706;
+  border-radius: 6px;
+  padding: 24px 28px;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(254, 243, 199, 0.25) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.cert-corner {
+  position: absolute;
+  color: #b45309;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cert-corner.tl { top: 6px; left: 8px; }
+.cert-corner.tr { top: 6px; right: 8px; }
+.cert-corner.bl { bottom: 6px; left: 8px; }
+.cert-corner.br { bottom: 6px; right: 8px; }
+
+.cert-royal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.cert-national-motto {
+  text-align: center;
+}
+
+.cert-national-motto h4 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #78350f;
+  letter-spacing: 0.5px;
+}
+
+.cert-national-motto h5 {
+  margin: 2px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #92400e;
+}
+
+.cert-motto-underline {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b45309, transparent);
+  margin: 4px auto 0;
+}
+
+.cert-school-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: right;
+}
+
+.cert-uni-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #b45309, #d97706);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  border: 2px solid #fef3c7;
+  box-shadow: 0 4px 10px rgba(180, 83, 9, 0.2);
+}
+
+.cert-school-header h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.cert-school-header h3 {
+  margin: 1px 0 0;
+  font-size: 10px;
+  font-weight: 600;
+  color: #087f8c;
+  letter-spacing: 0.5px;
+}
+
+.cert-main-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cert-main-title h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 900;
+  color: #b45309;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 rgba(254, 243, 199, 0.8);
+}
+
+.cert-eng-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #087f8c;
+  margin-top: 2px;
+}
+
+.cert-award-reason {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-style: italic;
+  color: #78350f;
+}
+
+.cert-recipient-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.cert-photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cert-photo-frame {
+  width: 120px;
+  height: 145px;
+  border-radius: 10px;
+  border: 3px solid #b45309;
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.25);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.cert-student-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cert-ribbon-badge {
+  margin-top: -12px;
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.cert-text-content {
+  flex: 1;
+}
+
+.cert-intro-text {
+  margin: 0;
+  font-size: 12px;
+  color: #44403c;
+  line-height: 1.6;
+}
+
+.cert-student-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #78350f;
+  margin: 6px 0 2px;
+  line-height: 1.2;
+}
+
+.cert-student-name-en {
+  font-size: 13px;
+  font-weight: 700;
+  color: #087f8c;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.cert-meta-info {
+  font-size: 11px;
+  color: #57534e;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cert-meta-info strong {
+  color: #1c1917;
+}
+
+.cert-bullet {
+  color: #d97706;
+  font-weight: bold;
+}
+
+.cert-grade-highlight-box {
+  display: flex;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #fde68a;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.08);
+  margin-bottom: 12px;
+}
+
+.cert-grade-badge,
+.cert-score-badge,
+.cert-eval-badge {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cert-grade-label,
+.cert-score-label,
+.cert-eval-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #78350f;
+  letter-spacing: 0.5px;
+}
+
+.cert-grade-letter {
+  font-size: 22px;
+  font-weight: 900;
+  color: #b45309;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.cert-grade-khmer {
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+}
+
+.cert-score-number {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.cert-score-number small {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: normal;
+}
+
+.cert-stars {
+  font-size: 11px;
+  color: #d97706;
+  letter-spacing: 1px;
+}
+
+.cert-eval-text {
+  font-size: 14px;
+  font-weight: 800;
+  color: #087f8c;
+}
+
+.cert-eval-gpa {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.cert-congrats-text {
+  margin: 0;
+  font-size: 11.5px;
+  color: #44403c;
+  line-height: 1.7;
+}
+
+.cert-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(217, 119, 6, 0.3);
+}
+
+.cert-sig-col {
+  text-align: center;
+  width: 220px;
+}
+
+.cert-date-text {
+  margin: 0 0 4px;
+  font-size: 10.5px;
+  color: #78350f;
+}
+
+.cert-sig-space {
+  height: 38px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.cert-signer-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #087f8c;
+  letter-spacing: 0.5px;
+}
+
+.cert-sig-line {
+  border-top: 1.5px solid #78350f;
+  width: 160px;
+  margin: 4px auto;
+}
+
+.cert-sig-title {
+  margin: 2px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.cert-sig-subtitle {
+  font-size: 9px;
+  color: #78716c;
+}
+
+.cert-president-label {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.cert-seal-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cert-official-seal {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px dashed #dc2626;
+  padding: 3px;
+  display: grid;
+  place-items: center;
+  transform: rotate(-8deg);
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.seal-outer-ring {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #dc2626;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.seal-inner-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+}
+
+.seal-inner-ring span {
+  font-size: 5.5px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+.seal-star {
+  font-size: 12px;
+  margin: -2px 0;
+}
+
+.seal-inner-ring strong {
+  font-size: 7.5px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.seal-inner-ring small {
+  font-size: 5.5px;
+}
+
+.cert-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cert-print-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.25);
+  transition: all 0.2s;
+}
+
+.cert-print-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.35);
+}
+
+.cert-close-btn {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Sidebar Certificate Pill */
+.cert-count-pill {
+  margin-left: auto;
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(180, 83, 9, 0.25);
+}
+
+/* Certificate Hub Gallery */
+.cert-hub-section {
+  border: 2px solid #fde68a !important;
+  background: linear-gradient(180deg, #fffdf7 0%, #ffffff 100%) !important;
+}
+
+.badge-cert-summary.gold {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cert-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.cert-student-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.cert-student-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.cert-student-card.honor-a {
+  border-color: #fde68a;
+  background: linear-gradient(180deg, #fffef7 0%, #ffffff 100%);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.08);
+}
+
+.cert-student-card.honor-a:hover {
+  border-color: #d97706;
+  box-shadow: 0 12px 28px rgba(217, 119, 6, 0.16);
+}
+
+.cert-card-avatar-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.cert-card-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #087f8c;
+  background: #ffffff;
+}
+
+.cert-student-card.honor-a .cert-card-avatar {
+  border-color: #d97706;
+}
+
+.cert-grade-tag {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.cert-card-info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cert-card-sub {
+  margin: 2px 0 6px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.cert-card-score-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+}
+
+.cert-card-score-line strong {
+  color: #0f172a;
+}
+
+.cert-card-khmer {
+  font-weight: 700;
+  color: #059669;
+  font-size: 11px;
+}
+
+.btn-issue-cert {
+  width: 100%;
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 3px 8px rgba(180, 83, 9, 0.2);
+}
+
+.btn-issue-cert:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(180, 83, 9, 0.3);
+}
+
+/* ==========================================================================
+   STUDENT ATTENDANCE SYSTEM (ប្រព័ន្ធពិនិត្យ និងកត់ត្រាវត្តមានសិស្ស)
+   ========================================================================== */
+
+/* Sidebar Attendance Counter Pill */
+.attendance-pill {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-link.active .attendance-pill {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #059669;
+}
+
+/* Attendance Hub Section Container */
+.attendance-hub-section {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  padding: 24px;
+  animation: slideDownFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attendance-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.attendance-header-wrap h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attendance-header-wrap p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+.attendance-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Date Selector */
+.attendance-date-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 4px 10px;
+  transition: all 0.2s ease;
+}
+
+.attendance-date-selector:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: #ffffff;
+}
+
+.attendance-date-icon {
+  font-size: 15px;
+}
+
+.attendance-date-input {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-attendance-today {
+  background: #e2e8f0;
+  color: #334155;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-attendance-today:hover {
+  background: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Action Buttons */
+.btn-mark-all-present {
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-mark-all-present:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+}
+
+.btn-attendance-print {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-attendance-print:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.btn-attendance-csv {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-attendance-csv:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* Live Attendance Metrics Grid */
+.attendance-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.attendance-stat-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.attendance-stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.attendance-stat-box.present {
+  border-left: 4px solid #10b981;
+}
+.attendance-stat-box.present.active-stat {
+  background: #ecfdf5;
+  border-color: #10b981;
+}
+
+.attendance-stat-box.late {
+  border-left: 4px solid #f59e0b;
+}
+.attendance-stat-box.late.active-stat {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.attendance-stat-box.permission {
+  border-left: 4px solid #3b82f6;
+}
+.attendance-stat-box.permission.active-stat {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.attendance-stat-box.absent {
+  border-left: 4px solid #ef4444;
+}
+.attendance-stat-box.absent.active-stat {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+.attendance-stat-box.rate {
+  border-left: 4px solid #8b5cf6;
+  cursor: default;
+}
+
+.stat-box-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.stat-box-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.stat-box-number {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.stat-box-number small {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.stat-box-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Toolbar: Search, Skill filter, Chips */
+.attendance-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.attendance-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 240px;
+  transition: all 0.2s ease;
+}
+
+.attendance-search-wrap:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.attendance-search-wrap input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.attendance-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.attendance-skill-select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  outline: none;
+  cursor: pointer;
+}
+
+.attendance-filter-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.attendance-chip {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.attendance-chip:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.attendance-chip.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+/* Attendance Table */
+.attendance-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.attendance-table th {
+  background: #f8fafc;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.attendance-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.attendance-row {
+  transition: background-color 0.15s ease;
+}
+
+.attendance-row:hover {
+  background: #f8fafc;
+}
+
+.attendance-row.status-present {
+  background: rgba(236, 253, 245, 0.4);
+}
+
+.attendance-row.status-late {
+  background: rgba(254, 243, 199, 0.4);
+}
+
+.attendance-row.status-permission {
+  background: rgba(239, 246, 255, 0.4);
+}
+
+.attendance-row.status-absent {
+  background: rgba(254, 226, 226, 0.4);
+}
+
+.attendance-idx {
+  font-weight: 700;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.attendance-student-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.attendance-student-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.attendance-student-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  display: block;
+}
+
+.attendance-student-sub {
+  font-size: 11px;
+  color: #64748b;
+  display: flex;
+  gap: 4px;
+}
+
+.attendance-skill-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Status Segmented Buttons */
+.attendance-status-toggles {
+  display: inline-flex;
+  gap: 4px;
+  background: #f1f5f9;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.att-toggle-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.att-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #0f172a;
+}
+
+.att-toggle-btn.present.selected {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(16, 185, 129, 0.35);
+}
+
+.att-toggle-btn.late.selected {
+  background: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(245, 158, 11, 0.35);
+}
+
+.att-toggle-btn.permission.selected {
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(59, 130, 246, 0.35);
+}
+
+.att-toggle-btn.absent.selected {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.35);
+}
+
+/* Note input & time badge */
+.attendance-note-input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #334155;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.attendance-note-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12);
+}
+
+.attendance-time-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.attendance-time-empty {
+  color: #cbd5e1;
+  text-align: center;
+  display: block;
+}
+
+.btn-attendance-row-reset {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.btn-attendance-row-reset:hover {
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+/* ==========================================================================
+   PRINTABLE ATTENDANCE SHEET (បញ្ជីវត្តមានសម្រាប់បោះពុម្ព)
+   ========================================================================== */
+
+.attendance-print-backdrop {
+  z-index: 10000;
+}
+
+.attendance-print-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 950px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px 30px;
+}
+
+.attendance-print-actions-top {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 14px;
+}
+
+.printable-attendance-document {
+  background: #ffffff;
+  padding: 20px;
+  color: #000000;
+  font-family: 'Khmer OS Siemreap', 'Siemreap', 'Segoe UI', Tahoma, sans-serif;
+}
+
+.att-print-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.att-print-country h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+}
+
+.att-print-country h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 4px 0;
+  color: #334155;
+}
+
+.att-print-ornament {
+  font-size: 12px;
+  color: #94a3b8;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.att-print-institution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 10px 0;
+}
+
+.att-print-logo-box {
+  width: 48px;
+  height: 48px;
+  background: #0284c7;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.att-print-institution h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.att-print-institution h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0284c7;
+  letter-spacing: 1px;
+  margin: 2px 0 0 0;
+}
+
+.att-print-institution p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+.att-print-title-box {
+  margin: 16px 0 14px 0;
+  padding: 8px;
+  background: #f8fafc;
+  border-top: 2px solid #0284c7;
+  border-bottom: 2px solid #0284c7;
+}
+
+.att-print-title-box h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.att-print-title-box h2 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 1px;
+  margin: 2px 0 0 0;
+}
+
+.att-print-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  font-size: 12px;
+  color: #1e293b;
+  text-align: left;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+/* Printable Table */
+.att-print-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  margin-top: 14px;
+}
+
+.att-print-table th,
+.att-print-table td {
+  border: 1px solid #334155;
+  padding: 6px 8px;
+}
+
+.att-print-table th {
+  background: #f1f5f9;
+  font-weight: 800;
+  text-align: center;
+  color: #0f172a;
+}
+
+.att-print-status {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.att-print-status.present {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.att-print-status.late {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.att-print-status.permission {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.att-print-status.absent {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.att-print-status.unmarked {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* Summary Row */
+.att-print-summary-row {
+  display: flex;
+  justify-content: space-around;
+  background: #f8fafc;
+  border: 1px solid #334155;
+  border-top: none;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+.att-print-stat-item strong {
+  font-size: 12px;
+  color: #0f172a;
+}
+
+/* Signatures */
+.att-print-signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+  padding: 0 40px;
+}
+
+.att-print-sig-col {
+  text-align: center;
+  width: 250px;
+  font-size: 12px;
+}
+
+.att-print-sig-col p {
+  margin: 2px 0;
+}
+
+.att-print-sig-title {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.att-print-sig-space {
+  height: 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: 700;
+  color: #0f172a;
+  padding-bottom: 6px;
+}
+
+.att-print-sig-line {
+  border-bottom: 1px dotted #334155;
+  width: 100%;
+}
+
+/* ==========================================================================
+   TEACHER ATTENDANCE & MANAGEMENT SYSTEM (សម្រាប់គ្រូ)
+   ========================================================================== */
+
+/* Sidebar Teacher Counter Pill */
+.teacher-pill {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-link.active .teacher-pill {
+  background: #8b5cf6;
+  color: #ffffff;
+  border-color: #7c3aed;
+}
+
+/* Attendance Mode Tabs */
+.attendance-type-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.att-type-tab {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.att-type-tab:hover {
+  color: #0f172a;
+}
+
+.att-type-tab.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.btn-add-teacher {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-add-teacher:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+.teacher-hub-section {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  padding: 24px;
+  animation: slideDownFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   STUDENT ID CARD QR CODE & DIRECT VERIFICATION LINK
+   ========================================================= */
+.idcard-qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 3px 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.idcard-qr-box {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idcard-qr-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.idcard-qr-label {
+  font-size: 6.5px;
+  font-weight: 800;
+  color: #087f8c;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+  text-transform: uppercase;
+}
+
+.idcard-scan-hint {
+  margin-top: 14px;
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  color: #0f766e;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.idcard-verify-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1.5px solid #10b981;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.idcard-verify-btn:hover {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   OFFICIAL DIGITAL IDENTITY VERIFICATION PAGE (/verify)
+   ========================================================= */
+.verify-page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0fdfa 0%, #f8fafc 40%, #e2e8f0 100%);
+  padding: 30px 16px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Poppins", "Khmer OS Battambang", sans-serif;
+}
+
+.verify-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.verify-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding: 12px 18px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.verify-brand-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.verify-logo {
+  font-size: 32px;
+  background: linear-gradient(135deg, #087f8c, #061c2b);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-brand-box h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.verify-brand-box h2 {
+  margin: 1px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #087f8c;
+  letter-spacing: 0.5px;
+}
+
+.verify-brand-box p {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: #64748b;
+}
+
+.btn-verify-home {
+  font-size: 13px;
+  font-weight: 600;
+  color: #087f8c;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  transition: all 0.2s;
+}
+
+.btn-verify-home:hover {
+  background: #087f8c;
+  color: #ffffff;
+}
+
+.verify-card-result {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.verify-badge-banner {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: #ffffff;
+}
+
+.verify-icon-pulse {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #059669;
+  font-size: 26px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.verify-banner-text h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.verify-banner-text p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #ecfdf5;
+}
+
+.verify-timestamp {
+  display: block;
+  font-size: 10.5px;
+  color: #d1fae5;
+  margin-top: 3px;
+}
+
+.verify-student-details-card {
+  padding: 24px;
+}
+
+.verify-student-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.verify-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.verify-avatar-img {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #087f8c;
+  background: #f8fafc;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.verify-active-dot {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #ffffff;
+}
+
+.verify-student-main {
+  flex: 1;
+}
+
+.verify-student-id-tag {
+  display: inline-block;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+}
+
+.verify-student-name-kh {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.verify-student-name-en {
+  margin: 2px 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #087f8c;
+  letter-spacing: 0.8px;
+}
+
+.verify-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.verify-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.verify-chip.skill {
+  background: #f0fdfa;
+  color: #0d9488;
+  border: 1px solid #ccfbf1;
+}
+
+.verify-chip.gender {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.verify-chip.status {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.verify-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.verify-grid-col {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.grid-label {
+  display: block;
+  font-size: 10.5px;
+  color: #64748b;
+  margin-bottom: 3px;
+}
+
+.grid-value {
+  display: block;
+  font-size: 13.5px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.grid-value.highlight {
+  color: #087f8c;
+  font-weight: 700;
+}
+
+.grid-value.paid {
+  color: #059669;
+  font-weight: 700;
+}
+
+.grid-value.code {
+  font-family: monospace;
+  font-size: 11px;
+  color: #475569;
+  word-break: break-all;
+}
+
+.verify-footer-stamp {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.verify-seal-icon .seal-ring {
+  width: 58px;
+  height: 58px;
+  border: 2px dashed #087f8c;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #087f8c;
+  background: rgba(8, 127, 140, 0.05);
+  transform: rotate(-8deg);
+  font-size: 7px;
+  font-weight: bold;
+}
+
+.seal-ring strong {
+  font-size: 8px;
+  letter-spacing: 0.5px;
+}
+
+.verify-seal-text h5 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.verify-seal-text p {
+  margin: 2px 0;
+  font-size: 10.5px;
+  color: #64748b;
+}
+
+.verify-seal-text small {
+  font-size: 9.5px;
+  color: #059669;
+  font-weight: 600;
+  display: block;
+}
+
+.verify-actions-row {
+  display: flex;
+  gap: 12px;
+  padding: 16px 24px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-verify-print {
+  flex: 1;
+  background: #087f8c;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-verify-print:hover {
+  background: #066874;
+}
+
+.btn-verify-login {
+  padding: 12px 18px;
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.btn-verify-login:hover {
+  background: #f1f5f9;
+}
+
+.verify-manual-search-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.manual-search-header .search-icon-big {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.manual-search-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.manual-search-header p {
+  margin: 6px 0 20px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.verify-input-form {
+  display: flex;
+  gap: 10px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.verify-input-form input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.verify-input-form input:focus {
+  border-color: #087f8c;
+}
+
+.btn-verify-submit {
+  background: #087f8c;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.verify-hint-box {
+  margin-top: 24px;
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.verify-hint-box p {
+  margin: 0;
+  font-size: 12px;
+  color: #0f766e;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .verify-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .verify-student-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .verify-tags-row {
+    justify-content: center;
+  }
+  .verify-actions-row {
+    flex-direction: column;
+  }
+}

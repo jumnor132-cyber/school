@@ -34,6 +34,7 @@ export const API_ENDPOINTS = {
   SESSION: getApiUrl("check_session.php"),
   DELETE: getApiUrl("delete.php"),
   UPDATE: getApiUrl("update.php"),
+  TOGGLE_PAYMENT: getApiUrl("toggle_payment.php"),
 };
 
 // Named exports for convenient direct imports:
@@ -44,6 +45,7 @@ export const LOGOUT_URL = API_ENDPOINTS.LOGOUT;
 export const SESSION_URL = API_ENDPOINTS.SESSION;
 export const DELETE_URL = API_ENDPOINTS.DELETE;
 export const UPDATE_URL = API_ENDPOINTS.UPDATE;
+export const TOGGLE_PAYMENT_URL = API_ENDPOINTS.TOGGLE_PAYMENT;
 
 const apiConfig = {
   BASE_URL: API_BASE_URL,
