@@ -1,0 +1,674 @@
+/* ==========================================================================
+   BELTEI INTERNATIONAL UNIVERSITY - OFFICIAL THEME STYLES
+   Author: Web Team
+   ========================================================================== */
+
+:root {
+  --uni-navy: #071e3d;
+  --uni-navy-dark: #04142b;
+  --uni-navy-light: #0f3057;
+  --uni-gold: #d49a00;
+  --uni-gold-hover: #b8860b;
+  --uni-gold-light: #fef3c7;
+  --uni-teal: #087f8c;
+  --uni-teal-light: #e0f4f7;
+  --uni-accent-blue: #0284c7;
+  --uni-bg-light: #f8fafc;
+  --uni-bg-subtle: #f1f5f9;
+  --uni-border: #e2e8f0;
+  --uni-text-dark: #0f172a;
+  --uni-text-body: #334155;
+  --uni-text-muted: #64748b;
+  --uni-font-main: "Kantumruy Pro", "Plus Jakarta Sans", "Poppins", sans-serif;
+}
+
+/* Base University Styling */
+.uni-body,
+.uni-page-wrapper {
+  font-family: var(--uni-font-main);
+  color: var(--uni-text-body);
+  background-color: var(--uni-bg-light);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.uni-font {
+  font-family: var(--uni-font-main);
+}
+
+/* Utility classes */
+.uni-text-navy { color: var(--uni-navy) !important; }
+.uni-text-gold { color: var(--uni-gold) !important; }
+.uni-text-teal { color: var(--uni-teal) !important; }
+.uni-bg-navy { background-color: var(--uni-navy) !important; }
+.uni-bg-navy-dark { background-color: var(--uni-navy-dark) !important; }
+.uni-bg-gold { background-color: var(--uni-gold) !important; }
+.uni-bg-gold-light { background-color: var(--uni-gold-light) !important; }
+.uni-bg-light { background-color: var(--uni-bg-light) !important; }
+.uni-bg-subtle { background-color: var(--uni-bg-subtle) !important; }
+
+/* Crest / Brand Logo in Header */
+.uni-crest-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #071e3d 0%, #087f8c 100%);
+  border: 2px solid #d49a00;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fef3c7;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(7, 30, 61, 0.25);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.uni-crest-icon:hover {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+/* Header Topbar */
+.uni-topbar {
+  background: var(--uni-navy-dark);
+  color: #cbd5e1;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.uni-topbar a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.uni-topbar a:hover {
+  color: #ffc107;
+}
+
+.uni-topbar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 154, 0, 0.15);
+  color: #ffd166;
+  border: 1px solid rgba(212, 154, 0, 0.35);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Main Navigation */
+.uni-navbar {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(7, 30, 61, 0.06);
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.uni-nav-link {
+  color: #1e293b !important;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 10px 16px !important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.uni-nav-link:hover {
+  color: var(--uni-teal) !important;
+  background-color: rgba(8, 127, 140, 0.06);
+}
+
+.uni-nav-link.active {
+  color: var(--uni-teal) !important;
+  font-weight: 700;
+  background-color: rgba(8, 127, 140, 0.08);
+}
+
+.uni-nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background: var(--uni-teal);
+  border-radius: 3px 3px 0 0;
+}
+
+.uni-btn-login {
+  background: linear-gradient(135deg, #087f8c 0%, #066874 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(8, 127, 140, 0.25);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  text-decoration: none;
+}
+
+.uni-btn-login:hover {
+  background: linear-gradient(135deg, #0ba4b0 0%, #087f8c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(8, 127, 140, 0.35);
+  color: #ffffff !important;
+}
+
+/* Announcement Ticker */
+.uni-ticker-bar {
+  background: #f8f1dc;
+  border-bottom: 1px solid #ebdcb2;
+  color: #714e00;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 0;
+}
+
+.uni-ticker-badge {
+  background: #d49a00;
+  color: #ffffff;
+  padding: 2px 9px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Hero Section */
+.uni-hero {
+  position: relative;
+  min-height: 640px;
+  background-color: var(--uni-navy);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.uni-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9);
+  z-index: 1;
+}
+
+.uni-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(4, 20, 43, 0.97) 0%,
+    rgba(7, 30, 61, 0.92) 55%,
+    rgba(8, 127, 140, 0.45) 100%
+  );
+  z-index: 2;
+}
+
+.uni-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.uni-hero-content {
+  position: relative;
+  z-index: 4;
+  padding: 70px 0;
+}
+
+.uni-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  color: #fef3c7;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.uni-pill-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: uniPulse 2s infinite;
+}
+
+@keyframes uniPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.uni-hero-title {
+  font-size: clamp(34px, 5.2vw, 56px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.uni-gold-gradient-text {
+  background: linear-gradient(135deg, #ffd166 0%, #f39c12 50%, #fef08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.uni-btn-primary {
+  background: linear-gradient(135deg, #d49a00 0%, #b8860b 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 6px 20px rgba(212, 154, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.uni-btn-primary:hover {
+  background: linear-gradient(135deg, #e6a700 0%, #c4920c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 154, 0, 0.45);
+}
+
+.uni-btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 26px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.uni-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Stat Counters */
+.uni-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+  border: 1px solid #edf2f7;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uni-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+  border-color: #dbeafe;
+}
+
+.uni-stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--uni-navy);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.uni-stat-number.gold {
+  color: #d49a00;
+}
+
+.uni-stat-number.teal {
+  color: #087f8c;
+}
+
+.uni-stat-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0;
+}
+
+/* Section Header */
+.uni-section-header {
+  margin-bottom: 45px;
+}
+
+.uni-kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--uni-teal);
+  margin-bottom: 8px;
+}
+
+.uni-section-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  color: var(--uni-navy);
+  line-height: 1.3;
+}
+
+.uni-section-subtitle {
+  font-size: 15.5px;
+  color: #64748b;
+  max-width: 680px;
+  margin: 10px auto 0;
+  line-height: 1.8;
+}
+
+/* Faculty & Program Card */
+.uni-program-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px;
+  border: 1px solid #eef2f6;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.uni-program-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--uni-teal) 0%, #38bdf8 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.uni-program-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 36px rgba(8, 127, 140, 0.12);
+  border-color: #cbd5e1;
+}
+
+.uni-program-card:hover::before {
+  opacity: 1;
+}
+
+.uni-program-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+
+.uni-program-card:hover .uni-program-icon-box {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.uni-degree-pill {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+/* Degree Level Banner Cards */
+.uni-degree-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.uni-degree-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(7, 30, 61, 0.09);
+  border-color: #94a3b8;
+}
+
+.uni-degree-years {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+/* Campus Directory Card */
+.uni-campus-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.uni-campus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+
+.uni-campus-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.uni-campus-card:hover .uni-campus-img {
+  transform: scale(1.05);
+}
+
+.uni-campus-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Timeline Milestones (About page) */
+.uni-timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.uni-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  width: 3px;
+  background: #e2e8f0;
+}
+
+.uni-timeline-item {
+  position: relative;
+  margin-bottom: 35px;
+  padding-left: 65px;
+}
+
+.uni-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.uni-timeline-badge {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #087f8c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 0 0 5px #e0f4f7;
+}
+
+.uni-timeline-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.uni-timeline-year {
+  font-size: 13px;
+  font-weight: 800;
+  color: #d49a00;
+  letter-spacing: 1px;
+}
+
+/* Rector / Founder Card */
+.uni-rector-card {
+  background: linear-gradient(135deg, #071e3d 0%, #0a2952 100%);
+  border-radius: 24px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(7, 30, 61, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Institutional Footer */
+.uni-footer {
+  background: #04142b;
+  color: #94a3b8;
+  font-size: 13.5px;
+  line-height: 1.8;
+  position: relative;
+  border-top: 4px solid #d49a00;
+}
+
+.uni-footer h5 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.uni-footer h5::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: #d49a00;
+}
+
+.uni-footer a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.uni-footer a:hover {
+  color: #ffd166;
+  padding-left: 4px;
+}
+
+.uni-footer-social-btn {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.uni-footer-social-btn:hover {
+  background: #d49a00;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.uni-sub-footer {
+  background: #020a16;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .uni-hero {
+    min-height: auto;
+  }
+  .uni-hero-content {
+    padding: 50px 0;
+  }
+  .uni-timeline::before {
+    left: 18px;
+  }
+  .uni-timeline-badge {
+    left: 2px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .uni-timeline-item {
+    padding-left: 48px;
+  }
+}
