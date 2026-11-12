@@ -360,7 +360,7 @@ export default function Home() {
 
                 {/* Floating Highlights Box */}
                 <div
-                  className="position-absolute bg-white rounded-3 shadow-lg p-3 d-flex align-items-center gap-3"
+                  className="position-absolute bg-white rounded-3 shadow-lg p-3 d-flex align-items-center gap-3 uni-hero-float-badge"
                   style={{
                     bottom: "-25px",
                     left: "-20px",
@@ -392,9 +392,9 @@ export default function Home() {
       {/* ================= STATS SECTION ================= */}
       <section className="py-4 position-relative" style={{ zIndex: 10, marginTop: "-30px" }}>
         <div className="container">
-          <div className="row g-3">
+          <div className="uni-stats-grid">
             {stats.map((item, idx) => (
-              <div className="col-6 col-lg" key={idx}>
+              <div key={idx}>
                 <div className="uni-stat-card">
                   <div className={`uni-stat-number ${idx % 2 === 0 ? "teal" : "gold"}`}>
                     {item.number}
@@ -423,7 +423,7 @@ export default function Home() {
                   style={{ height: "430px", objectFit: "cover" }}
                 />
                 <div
-                  className="position-absolute p-4 rounded-4 shadow-lg text-white"
+                  className="position-absolute p-4 rounded-4 shadow-lg text-white uni-about-float-badge"
                   style={{
                     bottom: "-25px",
                     right: "-20px",
@@ -573,7 +573,7 @@ export default function Home() {
             </p>
 
             {/* Category Filter Pills */}
-            <div className="d-flex justify-content-center flex-wrap gap-2 mt-4">
+            <div className="d-flex justify-content-center flex-wrap gap-2 mt-4 uni-filter-pills">
               {[
                 { id: "all", label: "ទាំងអស់ (All Faculties)" },
                 { id: "tech", label: "ព័ត៌មានវិទ្យា & AI" },

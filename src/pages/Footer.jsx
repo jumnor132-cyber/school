@@ -37,7 +37,7 @@ export default function Footer() {
                   alert("សូមអរគុណ! យើងខ្ញុំបានទទួលអ៊ីមែលរបស់អ្នករួចរាល់ហើយ។ ក្រុមការងារនឹងទាក់ទងមកលោកអ្នកក្នុងពេលឆាប់ៗ។");
                   e.target.reset();
                 }}
-                className="d-flex gap-2"
+                className="d-flex flex-column flex-sm-row gap-2"
               >
                 <input
                   type="email"

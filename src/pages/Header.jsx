@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
   const pathname = location.pathname.toLowerCase();
 
@@ -11,9 +12,13 @@ export default function Header() {
     return false;
   };
 
+  const handleNavClick = () => {
+    setIsNavOpen(false);
+  };
+
   return (
     <header className="uni-header sticky-top bg-white">
-      {/* Topbar Start */}
+      {/* Topbar Start - Desktop only */}
       <div className="uni-topbar d-none d-lg-block py-2">
         <div className="container">
           <div className="d-flex align-items-center justify-content-between">
@@ -88,65 +93,90 @@ export default function Header() {
       <nav className="navbar navbar-expand-lg uni-navbar">
         <div className="container">
           {/* University Brand Logo & Motto */}
-          <Link to="/" className="navbar-brand d-flex align-items-center gap-3 text-decoration-none py-1">
+          <Link
+            to="/"
+            onClick={handleNavClick}
+            className="navbar-brand d-flex align-items-center gap-2 gap-sm-3 text-decoration-none py-1"
+          >
             <div className="uni-crest-icon">
               <i className="fa fa-graduation-cap" />
             </div>
             <div>
-              <div className="d-flex align-items-baseline gap-2">
-                <h1 className="h4 fw-bold mb-0 text-navy" style={{ color: "#071e3d", letterSpacing: "0.5px" }}>
+              <div className="d-flex align-items-baseline gap-1 gap-sm-2">
+                <span className="uni-brand-title fw-bold text-navy mb-0">
                   BELTEI
-                </h1>
-                <span className="badge bg-warning text-dark fw-bold" style={{ fontSize: "10px" }}>
+                </span>
+                <span className="badge bg-warning text-dark fw-bold uni-brand-badge">
                   UNIVERSITY
                 </span>
               </div>
-              <div className="small fw-bold text-muted" style={{ fontSize: "11px", letterSpacing: "0.2px" }}>
+              <div className="uni-brand-subtitle fw-bold text-muted">
                 សាកលវិទ្យាល័យ ប៊ែលធី អន្តរជាតិ
               </div>
             </div>
           </Link>
 
-          {/* Mobile Menu Toggler */}
+          {/* Mobile Menu Toggler with React state */}
           <button
             type="button"
             className="navbar-toggler border-0 shadow-none p-2"
-            data-bs-toggle="collapse"
-            data-bs-target="#uniNavbarCollapse"
-            aria-controls="uniNavbarCollapse"
-            aria-expanded="false"
+            onClick={() => setIsNavOpen(!isNavOpen)}
             aria-label="Toggle navigation"
           >
-            <i className="fa fa-bars fa-lg text-dark" />
+            <i className={`fa ${isNavOpen ? "fa-times" : "fa-bars"} fa-lg text-dark`} />
           </button>
 
           {/* Nav Items */}
-          <div className="collapse navbar-collapse" id="uniNavbarCollapse">
+          <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`} id="uniNavbarCollapse">
             <div className="navbar-nav mx-auto align-items-lg-center gap-lg-1 my-3 my-lg-0">
-              <Link to="/" className={`uni-nav-link ${isActive("/") ? "active" : ""}`}>
-                <i className="fa fa-home d-lg-none me-2" /> ទំព័រដើម
+              <Link
+                to="/"
+                onClick={handleNavClick}
+                className={`uni-nav-link ${isActive("/") ? "active" : ""}`}
+              >
+                <i className="fa fa-home d-lg-none me-2 text-warning" /> ទំព័រដើម
               </Link>
 
-              <Link to="/about" className={`uni-nav-link ${isActive("/about") ? "active" : ""}`}>
-                <i className="fa fa-university d-lg-none me-2" /> អំពីសាកលវិទ្យាល័យ
+              <Link
+                to="/about"
+                onClick={handleNavClick}
+                className={`uni-nav-link ${isActive("/about") ? "active" : ""}`}
+              >
+                <i className="fa fa-university d-lg-none me-2 text-warning" /> អំពីសាកលវិទ្យាល័យ
               </Link>
 
-              <Link to="/service" className={`uni-nav-link ${isActive("/service") ? "active" : ""}`}>
-                <i className="fa fa-book-reader d-lg-none me-2" /> កម្មវិធីសិក្សា & សេវាកម្ម
+              <Link
+                to="/service"
+                onClick={handleNavClick}
+                className={`uni-nav-link ${isActive("/service") ? "active" : ""}`}
+              >
+                <i className="fa fa-book-reader d-lg-none me-2 text-warning" /> កម្មវិធីសិក្សា & សេវាកម្ម
               </Link>
 
-              <Link to="/contact" className={`uni-nav-link ${isActive("/contact") ? "active" : ""}`}>
-                <i className="fa fa-envelope d-lg-none me-2" /> ទំនាក់ទំនង
+              <Link
+                to="/contact"
+                onClick={handleNavClick}
+                className={`uni-nav-link ${isActive("/contact") ? "active" : ""}`}
+              >
+                <i className="fa fa-envelope d-lg-none me-2 text-warning" /> ទំនាក់ទំនង
               </Link>
 
-              <Link to="/verify" className={`uni-nav-link d-lg-none ${isActive("/verify") ? "active" : ""}`}>
-                <i className="fa fa-qrcode me-2" /> ផ្ទៀងផ្ទាត់សញ្ញាបត្រ
+              <Link
+                to="/verify"
+                onClick={handleNavClick}
+                className={`uni-nav-link d-lg-none ${isActive("/verify") ? "active" : ""}`}
+              >
+                <i className="fa fa-qrcode me-2 text-warning" /> ផ្ទៀងផ្ទាត់សញ្ញាបត្រ
               </Link>
             </div>
 
             {/* Right Action: Student Portal Login */}
-            <div className="d-flex align-items-center gap-2">
-              <Link to="/login" className="uni-btn-login">
+            <div className="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+              <Link
+                to="/login"
+                onClick={handleNavClick}
+                className="uni-btn-login w-100 w-lg-auto justify-content-center"
+              >
                 <i className="fa fa-user-shield" />
                 <span>ប្រព័ន្ធគ្រប់គ្រង (Portal)</span>
               </Link>

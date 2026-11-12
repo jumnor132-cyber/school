@@ -195,7 +195,7 @@ export default function About() {
                   style={{ height: "420px", objectFit: "cover" }}
                 />
                 <div
-                  className="position-absolute p-3 rounded-3 shadow-lg text-white"
+                  className="position-absolute p-3 rounded-3 shadow-lg text-white uni-about-year-badge"
                   style={{
                     bottom: "-20px",
                     left: "20px",
