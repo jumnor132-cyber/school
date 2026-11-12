@@ -1650,13 +1650,33 @@ function Login() {
         </div>
 
         <nav className="sidebar-menu">
-          <a href="#dashboard" className="sidebar-link active">
+          <button
+            type="button"
+            className={`sidebar-link ${!showAttendanceHub && !showCertHub && !showTeacherHub ? "active" : ""}`}
+            onClick={() => {
+              setShowAttendanceHub(false);
+              setShowCertHub(false);
+              setShowTeacherHub(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             <span>▦</span> Dashboard
-          </a>
+          </button>
 
-          <a href="#students" className="sidebar-link">
+          <button
+            type="button"
+            className="sidebar-link"
+            onClick={() => {
+              setShowAttendanceHub(false);
+              setShowCertHub(false);
+              setShowTeacherHub(false);
+              setTimeout(() => {
+                document.getElementById("students")?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
+            }}
+          >
             <span>♙</span> Students
-          </a>
+          </button>
 
           <button
             type="button"
@@ -1689,13 +1709,12 @@ function Login() {
             type="button"
             className={`sidebar-link ${showCertHub ? "active" : ""}`}
             onClick={() => {
-              const next = !showCertHub;
-              setShowCertHub(next);
-              if (next) {
-                setTimeout(() => {
-                  document.getElementById("certificates-hub")?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
-              }
+              setShowCertHub(true);
+              setShowAttendanceHub(false);
+              setShowTeacherHub(false);
+              setTimeout(() => {
+                document.getElementById("certificates-hub")?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
             }}
           >
             <span>🎖️</span> ប័ណ្ណសរសើរ
@@ -1708,13 +1727,10 @@ function Login() {
             type="button"
             className={`sidebar-link ${showAttendanceHub ? "active" : ""}`}
             onClick={() => {
-              const next = !showAttendanceHub;
-              setShowAttendanceHub(next);
-              if (next) {
-                setTimeout(() => {
-                  document.getElementById("attendance-hub")?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
-              }
+              setShowAttendanceHub(true);
+              setShowCertHub(false);
+              setShowTeacherHub(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             <span>📋</span> Check វត្តមាន
@@ -1729,13 +1745,12 @@ function Login() {
             type="button"
             className={`sidebar-link ${showTeacherHub ? "active" : ""}`}
             onClick={() => {
-              const next = !showTeacherHub;
-              setShowTeacherHub(next);
-              if (next) {
-                setTimeout(() => {
-                  document.getElementById("teacher-hub")?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
-              }
+              setShowTeacherHub(true);
+              setShowAttendanceHub(false);
+              setShowCertHub(false);
+              setTimeout(() => {
+                document.getElementById("teacher-hub")?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
             }}
           >
             <span>👨‍🏫</span> សម្រាប់គ្រូ
@@ -1762,18 +1777,39 @@ function Login() {
       <section className="student-main" id="dashboard">
         <header className="dashboard-topbar">
           <div>
-            <h1>Dashboard Overview</h1>
-            <p>Welcome back, {profileName}!</p>
+            <h1>
+              {showAttendanceHub
+                ? "📋 ប្រព័ន្ធពិនិត្យ និងកត់ត្រាវត្តមានសិស្ស"
+                : "Dashboard Overview"}
+            </h1>
+            <p>
+              {showAttendanceHub
+                ? "Student Attendance System · កត់ត្រាវត្តមានប្រចាំថ្ងៃ និងតាមដានវត្តមាន"
+                : `Welcome back, ${profileName}!`}
+            </p>
           </div>
 
-          <button
-            type="button"
-            className="refresh-btn"
-            onClick={loadStudents}
-            disabled={loading}
-          >
-            ↻ {loading ? "Loading..." : "Refresh"}
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            {showAttendanceHub && (
+              <button
+                type="button"
+                className="refresh-btn"
+                style={{ background: "#f1f5f9", color: "#334155", border: "1px solid #cbd5e1" }}
+                onClick={() => setShowAttendanceHub(false)}
+              >
+                ← ត្រឡប់ទៅ Dashboard
+              </button>
+            )}
+
+            <button
+              type="button"
+              className="refresh-btn"
+              onClick={loadStudents}
+              disabled={loading}
+            >
+              ↻ {loading ? "Loading..." : "Refresh"}
+            </button>
+          </div>
         </header>
 
         {error && (
@@ -1794,7 +1830,9 @@ function Login() {
           </div>
         )}
 
-        <section className="student-stats">
+        {!showAttendanceHub && (
+          <>
+            <section className="student-stats">
           <div className="stat-card">
             <div className="stat-icon purple">♙</div>
             <div>
@@ -2348,6 +2386,8 @@ function Login() {
             </div>
           </section>
         )}
+          </>
+        )}
 
         {showAttendanceHub && (
           <section className="analytics-card attendance-hub-section" id="attendance-hub" style={{ marginBottom: "26px" }}>
@@ -2691,7 +2731,9 @@ function Login() {
           </section>
         )}
 
-        {showTeacherHub && (
+        {!showAttendanceHub && (
+          <>
+            {showTeacherHub && (
           <section className="analytics-card teacher-hub-section" id="teacher-hub" style={{ marginBottom: "26px" }}>
             <div className="section-title attendance-header-wrap">
               <div>
@@ -3412,6 +3454,8 @@ function Login() {
             </div>
           </div>
         </section>
+          </>
+        )}
 
         <footer className="dashboard-footer">
           BELTEI Student Management System · Admin Dashboard
